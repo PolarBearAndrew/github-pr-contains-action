@@ -1,4 +1,4 @@
-import * as core from '@actions/core';
+const core = require('@actions/core');
 const { GitHub, context } = require('@actions/github');
 
 async function run() {
@@ -10,7 +10,12 @@ async function run() {
     // Check if the body contains required string
     const bodyContains = core.getInput('bodyContains');
 
-    if (!context?.payload?.pull_request?.body) {
+    if (
+      !context ||
+      !context.payload ||
+      !context.payload.pull_request ||
+      !context.payload.pull_request.body
+    ) {
       core.setFailed('`context.payload.pull_request.body is` empty');
       return;
     }
@@ -29,7 +34,7 @@ async function run() {
         'The body of the PR should not contain ' + bodyDoesNotContain
       );
     }
-  } catch (error: any) {
+  } catch (error) {
     core.setFailed(error.message);
   }
 }
