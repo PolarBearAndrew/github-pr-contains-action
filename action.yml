@@ -23,4 +23,4 @@ outputs:
     
 runs:
   using: 'node12'
-  main: 'release/main.js'
+  main: 'release/index.js'
