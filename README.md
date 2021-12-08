@@ -20,27 +20,7 @@ jobs:
         github-token: ${{github.token}}
         bodyDoesNotContain: "Delete this"
         bodyContains: 'Test'
-        diffContains: 'Test'
-        filesChanged: 1
-        linesChanged: 1
 ```
-
-The `bodyContain` variable will include the string that we want the body of the PR to include, such as checked items in a checklist.
-
-They can be left empty if no check wants to be done.
-
-An example is used as [.github/workflows/pr.yaml](.github/workflows/pr-v1.yaml) in this repository.
-
-## Contributing to development
-
-Any suggestion, but report, etc, is appreciated. Please use [issues](https://github.com/JJ/github-pr-contains-action/issues) for doing that.
-
-## History
-
-* `v0`: proof of concept, published to marketplace
-* `v1`: Adds several more checks
-* `v2`: Adds check for strings to avoid and creates issues for errors.
-
 ## License
 
 This is a modification of the original template, and is released under

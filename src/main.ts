@@ -1,5 +1,5 @@
 import * as core from '@actions/core';
-import { GitHub, context } from '@actions/github';
+const { GitHub, context } = require('@actions/github');
 
 async function run() {
   try {
